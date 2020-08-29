@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="screensaver.evolve.dvd"
+    name="DVD Screensaver"
+    version="1.0.1"
+    provider-name="smitchell6879">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0"/>
+  </requires>
+  <extension point="xbmc.ui.screensaver" library="resources/__init__.py" />
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">DVD Screensaver</summary>
+    <description lang="en">A throwback screensaver to time when things were simpler!</description>
+    <website></website>
+    <email>evolveecosystem@gmail.com</email>
+    <assets>
+		<icon>resources/icon.png</icon>
+		<screenshot>resources/screenshot-01.jpg</screenshot>
+		<screenshot>resources/screenshot-02.jpg</screenshot>
+    <screenshot>resources/screenshot-03.jpg</screenshot>
+    <screenshot>resources/screenshot-04.jpg</screenshot>
+		<screenshot>resources/screenshot-05.jpg</screenshot>
+    </assets>
+    <news></news>
+    <source></source>
+  </extension>
+</addon>

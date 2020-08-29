@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <!-- <defaultcontrol>50</defaultcontrol> -->
+    <backgroundcolor>0xff000000</backgroundcolor>
+    <controls>
+        <control type="image"> <!-- Window Header -->
+            <description>Logo</description>
+            <height>100%</height>
+            <width>100%</width>
+            <align>left</align>
+            <aligny>top</aligny>
+            <texture colordiffuse="ff000000">u_background.png</texture>
+        </control>
+        <control type="image" id="50">
+            <description>Logo</description>
+            <height>120</height>
+            <width>396</width>
+            <align>left</align>
+            <aligny>top</aligny>
+            <texture>dvd.png</texture>
+        </control>
+        <!-- <control type="label" id="50">
+            <description>Logo</description>
+            <height>65</height>
+            <width>180</width>
+            <align>left</align>
+            <aligny>top</aligny>
+            <font>font60</font>
+        </control> -->
+    </controls>
+</window>
