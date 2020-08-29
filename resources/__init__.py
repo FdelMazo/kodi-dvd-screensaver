@@ -12,6 +12,8 @@ class screensaver(xbmcgui.WindowXMLDialog):
         self.width_direction = True
         self.height_direction = True
         self.display_logo = addon.getSetting("display_logo")
+        self.speed = int(addon.getSetting("speed"))
+        self.speed /= 100
         if "DVD" in self.display_logo:
             self.actual_logo = "dvd.png"
         if "Blu-ray" in self.display_logo:
@@ -57,7 +59,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
                 self.width=self.screen_width-self.logo_width
                 self.side_walls+=1
             else:
-                self.width+=1
+                self.width+=self.speed
         else:
             if self.width < 0:
                 self.change_color()
@@ -65,7 +67,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
                 self.width = 0
                 self.side_walls+=1
             else:
-                self.width-=1
+                self.width-=self.speed
         if self.height_direction:
             if self.height > (self.screen_height-self.logo_height):
                 self.change_color()
@@ -73,7 +75,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
                 self.height=self.screen_height-self.logo_height
                 self.top_bottom+=1
             else:
-                self.height+=1
+                self.height+=self.speed
         else:
             if self.height < 0:
                 self.change_color()
@@ -81,7 +83,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
                 self.height = 0
                 self.top_bottom+=1
             else:
-                self.height-=1
+                self.height-=self.speed
         if self.width == 0 or self.width == (self.screen_width-self.logo_width):
             if self.height == 0:
                 self.corner+=1
