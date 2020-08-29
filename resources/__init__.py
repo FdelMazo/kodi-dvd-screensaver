@@ -1,7 +1,12 @@
-import random, sys, xbmc, xbmcaddon, xbmcgui
+import random
+import sys
+import xbmc
+import xbmcaddon
+import xbmcgui
 
 addon = xbmcaddon.Addon()
 monitor = xbmc.Monitor()
+
 
 class screensaver(xbmcgui.WindowXMLDialog):
     def __init__(self, *args, **kwargs):
@@ -22,11 +27,11 @@ class screensaver(xbmcgui.WindowXMLDialog):
             self.actual_logo = "3d_blu_ray.png"
         if "Evolve" in self.display_logo:
             self.actual_logo = "splash_blue_ico.png"
-        if "Custom" in self.display_logo :
+        if "Custom" in self.display_logo:
             self.actual_logo = addon.getSetting("custom_logo")
 
     def onInit(self):
-        self.logo =self.getControl(50)
+        self.logo = self.getControl(50)
         self.logo_width = int(self.logo.getWidth())
         self.logo_height = int(self.logo.getHeight())
         self.logo.setImage(self.actual_logo, False)
@@ -42,8 +47,8 @@ class screensaver(xbmcgui.WindowXMLDialog):
             monitor.waitForAbort(.032)
 
     def random_color(self):
-        r = lambda: random.randint(0,255)
-        return '0xC0%02X%02X%02X' % (r(),r(),r())
+        def r(): return random.randint(0, 255)
+        return '0xC0%02X%02X%02X' % (r(), r(), r())
 
     def change_color(self):
         self.logo.setColorDiffuse(self.random_color())
@@ -56,47 +61,48 @@ class screensaver(xbmcgui.WindowXMLDialog):
             if self.width > (self.screen_width-self.logo_width):
                 self.change_color()
                 self.width_direction = False
-                self.width=self.screen_width-self.logo_width
-                self.side_walls+=1
+                self.width = self.screen_width-self.logo_width
+                self.side_walls += 1
             else:
-                self.width+=self.speed
+                self.width += self.speed
         else:
             if self.width < 0:
                 self.change_color()
                 self.width_direction = True
                 self.width = 0
-                self.side_walls+=1
+                self.side_walls += 1
             else:
-                self.width-=self.speed
+                self.width -= self.speed
         if self.height_direction:
             if self.height > (self.screen_height-self.logo_height):
                 self.change_color()
                 self.height_direction = False
-                self.height=self.screen_height-self.logo_height
-                self.top_bottom+=1
+                self.height = self.screen_height-self.logo_height
+                self.top_bottom += 1
             else:
-                self.height+=self.speed
+                self.height += self.speed
         else:
             if self.height < 0:
                 self.change_color()
                 self.height_direction = True
                 self.height = 0
-                self.top_bottom+=1
+                self.top_bottom += 1
             else:
-                self.height-=self.speed
+                self.height -= self.speed
         if self.width == 0 or self.width == (self.screen_width-self.logo_width):
             if self.height == 0:
-                self.corner+=1
+                self.corner += 1
                 self.hit_corner()
-            elif self.height==(self.screen_height-self.logo_height):
-                self.corner+=1
+            elif self.height == (self.screen_height-self.logo_height):
+                self.corner += 1
                 self.hit_corner()
-        self.logo.setPosition(self.width,self.height)
+        self.logo.setPosition(self.width, self.height)
 
     def exit_screen(self):
         print("EXITING COMPLETE")
         self.exit = True
         self.close()
+
     class MonitorExit(xbmc.Monitor):
         def __init__(self, exit):
             self.exit = exit
