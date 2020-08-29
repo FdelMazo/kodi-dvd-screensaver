@@ -46,6 +46,9 @@ class screensaver(xbmcgui.WindowXMLDialog):
     def change_color(self):
         self.logo.setColorDiffuse(self.random_color())
 
+    def hit_corner(self):
+        self.logo.setColorDiffuse('0xC0FF00FF')
+
     def movement(self):
         if self.width_direction:
             if self.width > (self.screen_width-self.logo_width):
@@ -82,8 +85,10 @@ class screensaver(xbmcgui.WindowXMLDialog):
         if self.width == 0 or self.width == (self.screen_width-self.logo_width):
             if self.height == 0:
                 self.corner+=1
+                self.hit_corner()
             elif self.height==(self.screen_height-self.logo_height):
                 self.corner+=1
+                self.hit_corner()
         self.logo.setPosition(self.width,self.height)
 
     def exit_screen(self):
