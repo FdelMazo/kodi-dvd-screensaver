@@ -19,16 +19,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
         self.display_logo = addon.getSetting("display_logo")
         self.speed = int(addon.getSetting("speed"))
         self.speed /= 100
-        if "DVD" in self.display_logo:
-            self.actual_logo = "dvd.png"
-        if "Blu-ray" in self.display_logo:
-            self.actual_logo = "blu_ray.png"
-        if "3D Blu-ray" in self.display_logo:
-            self.actual_logo = "3d_blu_ray.png"
-        if "Evolve" in self.display_logo:
-            self.actual_logo = "splash_blue_ico.png"
-        if "Custom" in self.display_logo:
-            self.actual_logo = addon.getSetting("custom_logo")
+        self.actual_logo = "dvd.png"
 
     def onInit(self):
         self.logo = self.getControl(50)

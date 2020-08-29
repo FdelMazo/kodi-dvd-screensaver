@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-	<category label="General">
-		<setting label="Select Display Logo" type="select" id="display_logo" values="DVD|Blu-ray|3D Blu-ray|Evolve|Custom" default="DVD"/>
-		<setting label="Select Speed" type="number" id="speed" default="800"/>
-    <setting label="Custom logos will need to be 396 width by 120 height or in that ratio" type="lsep"/>
-    <setting label="Select Custom Logo" type="image" id="custom_logo" default=""/>
+  <category label="General">
+	<setting label="Select Speed" type="number" id="speed" default="800"/>
   </category>
 </settings>
