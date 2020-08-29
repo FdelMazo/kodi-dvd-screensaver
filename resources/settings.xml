@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-  <category label="General">
-	<setting label="Select Speed" type="number" id="speed" default="800"/>
+	<category label="General">
+	<setting label="Corner Color" type="text" id="corner_color" default="FF00FF"/>
+    <setting label="When the logo hits the corner, it changes to this special color (default = magenta)" type="lsep"/>
+	<setting label="Speed" type="number" id="speed" default="800"/>
   </category>
 </settings>

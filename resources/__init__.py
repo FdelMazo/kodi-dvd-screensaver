@@ -19,6 +19,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
         self.display_logo = addon.getSetting("display_logo")
         self.speed = int(addon.getSetting("speed"))
         self.speed /= 100
+        self.corner_color = addon.getSetting("corner_color")
         self.actual_logo = "dvd.png"
 
     def onInit(self):
@@ -45,7 +46,8 @@ class screensaver(xbmcgui.WindowXMLDialog):
         self.logo.setColorDiffuse(self.random_color())
 
     def hit_corner(self):
-        self.logo.setColorDiffuse('0xC0FF00FF')
+        corner_color = "0xC0" + self.corner_color.upper()
+        self.logo.setColorDiffuse(corner_color)
 
     def movement(self):
         if self.width_direction:
