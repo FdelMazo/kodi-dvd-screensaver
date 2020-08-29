@@ -39,9 +39,17 @@ class screensaver(xbmcgui.WindowXMLDialog):
             self.movement()
             monitor.waitForAbort(.032)
 
+    def random_color(self):
+        r = lambda: random.randint(0,255)
+        return '0xC0%02X%02X%02X' % (r(),r(),r())
+
+    def change_color(self):
+        self.logo.setColorDiffuse(self.random_color())
+
     def movement(self):
         if self.width_direction:
             if self.width > (self.screen_width-self.logo_width):
+                self.change_color()
                 self.width_direction = False
                 self.width=self.screen_width-self.logo_width
                 self.side_walls+=1
@@ -49,6 +57,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
                 self.width+=1
         else:
             if self.width < 0:
+                self.change_color()
                 self.width_direction = True
                 self.width = 0
                 self.side_walls+=1
@@ -56,6 +65,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
                 self.width-=1
         if self.height_direction:
             if self.height > (self.screen_height-self.logo_height):
+                self.change_color()
                 self.height_direction = False
                 self.height=self.screen_height-self.logo_height
                 self.top_bottom+=1
@@ -63,6 +73,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
                 self.height+=1
         else:
             if self.height < 0:
+                self.change_color()
                 self.height_direction = True
                 self.height = 0
                 self.top_bottom+=1
