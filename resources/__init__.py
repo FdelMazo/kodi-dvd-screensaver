@@ -89,7 +89,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
             elif self.height == (self.screen_height-self.logo_height):
                 self.corner += 1
                 self.hit_corner()
-        self.logo.setPosition(self.width, self.height)
+        self.logo.setPosition(round(self.width), round(self.height))
 
     def exit_screen(self):
         print("EXITING COMPLETE")
@@ -114,7 +114,7 @@ class screensaver(xbmcgui.WindowXMLDialog):
 
 if __name__ == '__main__':
     screensaver = screensaver('evolve_screensaver.xml',
-                              addon.getAddonInfo("path").decode("utf-8"),
+                              addon.getAddonInfo("path"),
                               'default',
                               '1080i')
     screensaver.doModal()
